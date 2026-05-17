@@ -1,7 +1,7 @@
 # Telco Churn Risk Scoring
 
 <p align="center">
-  <img src="assets/images/cover/project_cover.png" width="800">
+  <img src="assets/images/project_cover.png" width="800">
 </p>
 
 ## 🎯 Project Goal
