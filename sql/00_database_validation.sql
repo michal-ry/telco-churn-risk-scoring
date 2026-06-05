@@ -1,4 +1,4 @@
--- Database setup and validation queries
+-- Database validation queries
 
 -- Purpose:
 -- Validate the imported Telco Customer Churn CSV table 
