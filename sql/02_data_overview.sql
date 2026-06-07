@@ -30,8 +30,8 @@ from telco_customers;
 -- Churn clients per group yes/no
 select
 churn,
-count(*) as clients_count,
-round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as clients_pct
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
 from telco_customers
 group by churn
 order by churn;
@@ -41,11 +41,11 @@ order by churn;
 -- senior_citizen
 select
 senior_citizen,
-count(*) as clients_count,
-round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as clients_pct
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
 from telco_customers
 group by senior_citizen
-order by clients_count desc;
+order by customers_count desc;
 
 -- tenure
 select
@@ -86,3 +86,139 @@ percentile_cont(0.75) within group (order by total_charges) as total_charges_q3,
 percentile_cont(0.75) within group (order by total_charges) - percentile_cont(0.25) within group (order by total_charges) as total_charges_iqr
 from telco_customers;
 
+-- Categorical columns
+
+-- gender
+select
+gender,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by gender
+order by customers_count desc;
+
+-- partner
+select
+partner,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by partner
+order by customers_count desc;
+
+-- dependents
+select
+dependents,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by dependents
+order by customers_count desc;
+
+-- phone_service
+select
+phone_service,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by phone_service
+order by customers_count desc;
+
+-- multiple_lines
+select
+multiple_lines,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by multiple_lines
+order by customers_count desc;
+
+-- internet_service
+select
+internet_service,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by internet_service
+order by customers_count desc;
+
+-- online_security
+select
+online_security,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by online_security
+order by customers_count desc;
+
+-- online_backup
+select
+online_backup,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by online_backup
+order by customers_count desc;
+
+-- device_protection
+select
+device_protection,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by device_protection
+order by customers_count desc;
+
+-- tech_support
+select
+tech_support,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by tech_support
+order by customers_count desc;
+
+-- streaming_tv
+select
+streaming_tv,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by streaming_tv
+order by customers_count desc;
+
+-- streaming_movies
+select
+streaming_movies,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by streaming_movies
+order by customers_count desc;
+
+-- contract
+select
+contract,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by contract
+order by customers_count desc;
+
+-- paperless_billing
+select
+paperless_billing,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by paperless_billing
+order by customers_count desc;
+
+-- payment_method
+select
+payment_method,
+count(*) as customers_count,
+round(cast(count(*) as numeric) / (select count(*) from telco_customers) * 100, 2) as customers_pct
+from telco_customers
+group by payment_method
+order by customers_count desc;
