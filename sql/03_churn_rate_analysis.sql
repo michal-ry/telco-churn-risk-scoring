@@ -9,7 +9,9 @@
 -- Source table:
 -- telco_customers
 
--- Create a view with baseline churn rate
+-- Views
+
+-- Baseline churn rate view
 
 create or replace view baseline_churn_rate as
 select
@@ -17,6 +19,37 @@ avg(case
 	when churn = 'Yes' then 1
 	else 0
 end) as overall_churn_rate
+from telco_customers;
+
+-- Categorical churn analysis helper view
+-- Info: column senior_citizen is converted to categorical using this pattern: 1 = 'Yes' and 0 = 'No'
+
+create or replace view telco_categorical_churn_helper as
+select
+customer_id,
+case
+	when churn = 'Yes' then 1
+	else 0
+end as is_churned,
+gender,
+case 
+	when senior_citizen = 1 then 'Yes'
+	else 'No'
+end as senior_citizen_converted,
+partner,
+dependents,
+phone_service,
+multiple_lines,
+internet_service,
+online_security,
+online_backup,
+device_protection,
+tech_support,
+streaming_tv,
+streaming_movies,
+contract,
+paperless_billing,
+payment_method
 from telco_customers;
 
 -- Baseline churn rate
