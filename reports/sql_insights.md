@@ -60,3 +60,33 @@ Customers using other payment methods churn below the overall baseline. This inc
 The strongest churn rate differences were observed for payment method, contract type, internet service, senior citizen and tech support.
 
 Customers with electronic check, month-to-month contracts, fiber optic internet, without tech support or those that are in a senior citizen group showed churn rates far above the overall baseline.
+
+## Financial Impact Analysis
+
+### Contract Type
+
+Month-to-month customers are one of the most financially important high-churn groups. They combine a high churn rate of 42.71% with the largest churned customer count: 1655 customers.
+
+With a median monthly charge of $73.25, this group represents an estimated monthly revenue at risk of approximately $121,228.75.
+
+### Internet Service
+
+Customers with fiber optic internet represent another important high-churn group. They combine a high churn rate of 41.89% with 1297 churned customers and a high median monthly charge of $91.67.
+
+Their estimated monthly revenue at risk is approximately $118,895.99.
+
+### Dependents
+
+Another group with high financial impact is customers without dependents. Although their churn rate is lower than in the previous groups at 31.28%, there are a total of 1543 churned customers in this group.
+
+With a median monthly charge of $73.90, their estimated monthly revenue at risk is approximately $114,027.70.
+
+### Tech Support
+
+Another group worth mentioning is customers without tech support. This group has 1446 churned customers and a churn rate of 41.64%.
+
+With a median monthly charge of $78.05, this group is associated with an estimated monthly revenue at risk of approximately $112,860.30.
+
+### Key takeaway
+
+Overall, month-to-month customers, fiber optic customers, customers without dependents, and customers without tech support represent the highest estimated monthly revenue at risk among the analyzed high-churn groups.
