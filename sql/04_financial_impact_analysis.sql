@@ -6,7 +6,7 @@
 -- Evaluate whether high-churn customer groups may also represent meaningful financial impact.
 
 -- Source table:
--- telco_customers
+-- telco_financial_impact_helper
 
 -- Views
 

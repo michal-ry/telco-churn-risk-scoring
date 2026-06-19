@@ -7,7 +7,7 @@
 -- Identify customer segments with elevated churn risk.
 
 -- Source table:
--- telco_customers
+-- telco_categorical_churn_helper
 
 -- Views
 
