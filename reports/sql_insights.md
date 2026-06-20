@@ -1,4 +1,4 @@
-# SQL Insights
+git add # SQL Insights
 
 ## Dataset Overview
 
@@ -90,3 +90,31 @@ With a median monthly charge of $78.05, this group is associated with an estimat
 ### Key takeaway
 
 Overall, month-to-month customers, fiber optic customers, customers without dependents, and customers without tech support represent the highest estimated monthly revenue at risk among the analyzed high-churn groups.
+
+## Customer Segments Analysis
+
+### Month-to-month contract + no dependents
+
+A group of customers with a month-to-month contract and no dependents contains 1396 churned customers, with a churn rate of 45.24% and a median monthly charge of $74.37.
+
+Their estimated monthly revenue at risk is approximately $103,827.50.
+
+### Month-to-month contract + no tech support
+
+The month-to-month contract + no tech support segment represents another customer group with estimated monthly revenue at risk above $100,000: approximately $102,060.00.
+
+This group combines a high churn rate of 50.37% with a total of 1350 churned customers and a median monthly charge of $75.60.
+
+### Other segments
+
+Other explored two-feature segment combinations, including month-to-month contracts, no dependents, no tech support, and fiber optic internet, also represent high-impact customer groups. Their estimated monthly revenue at risk falls in the range of approximately $96,000–$100,000.
+
+Larger segments combining 3 and 4 features were also checked, but they did not provide as much estimated monthly revenue at risk as the two-feature segments.
+
+## SQL Analysis Summary
+
+The SQL analysis identified several customer groups with elevated churn risk and meaningful estimated monthly revenue at risk.
+
+The strongest patterns were related to month-to-month contracts, fiber optic internet, lack of tech support, and customers without dependents.
+
+Customer segment analysis showed that two-feature segments provided a good balance between business readability and financial impact. The most important segments combined high churn rate, large churned customer count, and meaningful median monthly charges.
