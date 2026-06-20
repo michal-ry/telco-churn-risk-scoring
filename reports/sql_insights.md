@@ -1,5 +1,3 @@
-git add # SQL Insights
-
 ## Dataset Overview
 
 Total number of rows: 7043
