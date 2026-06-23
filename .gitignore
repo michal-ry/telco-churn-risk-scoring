@@ -223,3 +223,6 @@ data/processed/*
 
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# VS Code local settings
+.vscode/
