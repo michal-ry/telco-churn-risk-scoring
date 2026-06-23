@@ -226,3 +226,6 @@ data/processed/*
 
 # VS Code local settings
 .vscode/
+
+# Environment variables
+.env
