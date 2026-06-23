@@ -16,7 +16,8 @@ dependencies = [
     "scikit-learn",
     "sqlalchemy",
     "psycopg2-binary",
-    "python-dotenv"
+    "python-dotenv",
+    "pytest"
 ]
 
 [tool.setuptools.packages.find]
