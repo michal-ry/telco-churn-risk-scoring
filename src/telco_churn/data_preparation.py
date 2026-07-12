@@ -2,21 +2,21 @@ import pandas as pd
 from sqlalchemy import create_engine
 from pathlib import Path
 
-def load_telco_customers_from_db(db_url):
+def load_table_to_df(db_url, table_name):
 
     """
-    Load telco customers table from a database.
+    Load table or view from a SQL database and return pandas DataFrame.
     
     Args:
         db_url: SQLAlchemy database URL.
+        table_name (str): Name of the SQL table or view to load.
 
     Returns:
-        pd.DataFrame: DataFrame with telco customer data.
+        pd.DataFrame: DataFrame containing data from the selected table or view.
 
     Raises:
-        ValueError: If db_url is None or empty.
-        TypeError: If db_url is not a string.
-
+        ValueError: If `db_url` or `table_name` is None or empty.
+        TypeError: If `db_url` or `table_name` is not a string.
     """
 
     if db_url is None:
@@ -27,9 +27,18 @@ def load_telco_customers_from_db(db_url):
     
     if db_url.strip() == "":
         raise ValueError("db_url cannot be an empty string.")
+    
+    if table_name is None:
+        raise ValueError("table_name cannot be None.")
+    
+    if not isinstance(table_name, str):
+        raise TypeError("table_name must be a string.")
+    
+    if table_name.strip() == "":
+        raise ValueError("table_name cannot be an empty string.")
 
     engine = create_engine(db_url)
-    query = "SELECT * FROM telco_customers"
+    query = f"SELECT * FROM {table_name}"
 
     return pd.read_sql(query, engine)
 
