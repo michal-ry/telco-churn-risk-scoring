@@ -1,6 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine
-import os
+from pathlib import Path
 
 def load_telco_customers_from_db(db_url):
 
@@ -33,52 +33,45 @@ def load_telco_customers_from_db(db_url):
 
     return pd.read_sql(query, engine)
 
-def save_dataframe_to_csv(df, path, file_name):
+def save_df_to_csv(df, path):
 
     '''
-    Save a pandas DataFrame to a CSV file. 
+    Save a pandas DataFrame to a CSV file.
 
     Args:
-        df: pandas DataFrame to save.
-        path: Path to the folder where the DataFrame will be saved.
-        file_name: Name of the saved DataFrame file without extension.
+        df (pd.DataFrame): pandas DataFrame to save.
+        path (str | Path): Full path to the target CSV file.
 
     Returns:
-        full_path: full path to the saved CSV file.
+        Path: Full path to the saved CSV file.
 
     Raises:
         TypeError: If df is not a pandas DataFrame.
-        TypeError: If path or file_name is not a string.
-        ValueError: If path or file_name is an empty string.
-        ValueError: If file_name ends with a '.csv'.
+        TypeError: If path is not a string or Path object.
+        ValueError: If path is an empty string.
+        ValueError: If path does not end with the `.csv` extension.
 
     Example:
-        >>> save_dataframe_to_csv(df=df, path='data/processed', file_name='clean_df')
-        'data/processed/clean_df.csv'
+        >>> save_df_to_csv(df=df, path='data/processed/clean_df.csv')
+        Path('data/processed/clean_df.csv')
     '''
 
     if not isinstance(df, pd.DataFrame):
         raise TypeError('df input must be a pandas DataFrame.')
+    
+    if not isinstance(path, (str, Path)):
+        raise TypeError('path must be a string or Path object.')
 
-    if not isinstance(path, str):
-        raise TypeError('path must be in a string format.')
-
-    if not path.strip():
+    if isinstance(path, str) and not path.strip():
         raise ValueError('path cannot be an empty string.')
+    
+    path = Path(path)
+    
+    if path.suffix != '.csv':
+        raise ValueError('path must end with a `.csv` extension.')
 
-    if not isinstance(file_name, str):
-        raise TypeError('file_name must be in a string format.')
+    path.parent.mkdir(exist_ok=True, parents=True)
 
-    if not file_name.strip():
-        raise ValueError('file_name cannot be an empty string.')
+    df.to_csv(path, index=False)
 
-    if file_name.endswith('.csv'):
-        raise ValueError('file_name should not end with `.csv` extension.')
-        
-    os.makedirs(path, exist_ok=True)
-
-    full_path = os.path.join(path, f'{file_name}.csv')
-
-    df.to_csv(full_path, index=False)
-
-    return full_path
+    return path
