@@ -1,11 +1,12 @@
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
 
 
 def save_plot(path, file_name, extension='png', dpi=300):
 
-    '''
+    """
     Function for saving plots.
 
     Args:
@@ -26,7 +27,7 @@ def save_plot(path, file_name, extension='png', dpi=300):
 
     Example:
         >>> save_plot(path='charts', file_name='total_charges_hist', extension='png', dpi=300)
-    '''
+    """
 
     if not isinstance(path, (str, Path)):
         raise TypeError('path must be a string or Path object.')
@@ -64,3 +65,22 @@ def save_plot(path, file_name, extension='png', dpi=300):
     plt.savefig(full_path, format=extension, dpi=dpi)
 
     return full_path
+
+
+def add_bar_labels(axes: Axes) -> None:
+    """
+    Add percentage labels to a single bar series.
+    Only the first bar container is labeled.
+    Padding is set to 2 and fontsize to 8.
+    Values are displayed in the following format: 25.0%.
+
+    Args:
+        axes (Axes): Matplotlib axes containing a bar plot.
+    """
+
+    axes.bar_label(
+        axes.containers[0],
+        fmt="%.1f%%",
+        padding=2,
+        fontsize=8,
+    )
