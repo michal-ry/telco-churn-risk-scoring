@@ -31,11 +31,12 @@ In progress – early stage.
 
 ## 🔜 Next Step
 
-The next step is to perform initial business and data exploration using SQL:
+The next step is to prepare the data for machine learning models:
 
-- Data Overview
-- Churn rate analysis
-- Customer segments analysis
+- Encode categorical features
+- Prepare model-specific transformations
+- Build reusable preprocessing functions
+- Create preprocessing pipelines for selected models
 
 ## 👨‍💻 Author
 
